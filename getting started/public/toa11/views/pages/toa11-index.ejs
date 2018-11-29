@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Group 8 TOA 11</title>
+	<script>
+		function dosubmit() {
+			var search = document.getElementById('search').value
+			// console.log(search)
+			search = search.replace(/ /g, "+")
+			var url = "http://www.omdbapi.com/?apikey=5c370924&s=" + search
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+			  if (this.readyState == 4 && this.status == 200) {
+			  	// console.log(this.responseText)
+			  	var obj = JSON.parse(this.responseText);
+			  	// console.log(obj)
+			  	var thelist_content = ""
+			  	for (var i = 0; i < obj.Search.length; ++i) {
+			  		thelist_content += "<li onclick='dodetails(\""
+			  		thelist_content += obj.Search[i].imdbID
+			  		thelist_content += "\")'>"
+			  		thelist_content += obj.Search[i].Title
+			  		thelist_content += "</li>"
+			  		// console.log(obj.Search[i])
+			  	}
+			  	var element = document.getElementById("thelist")
+			  	element.innerHTML = thelist_content
+			  }
+			};
+			xhttp.open("GET", url, true);
+			xhttp.send();
+  		}
+  		function dodetails(id) {
+  			// console.log('in details w/' + id)
+			var url = "http://www.omdbapi.com/?apikey=5c370924&i=" + id
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+			  if (this.readyState == 4 && this.status == 200) {
+			  	// console.log(this.responseText)
+			  	var obj = JSON.parse(this.responseText);
+			  	// console.log(obj)
+			  	// var thelist_content = ""
+			  	// for (var i = 0; i < obj.Search.length; ++i) {
+			  	// 	thelist_content += "<li onclick='dodetails(\""
+			  	// 	thelist_content += obj.Search[i].imdbID
+			  	// 	thelist_content += "\")'>"
+			  	// 	thelist_content += obj.Search[i].Title
+			  	// 	thelist_content += "</li>"
+			  	// 	// console.log(obj.Search[i])
+			  	// }
+			  	// var element = document.getElementById("thelist")
+			  	// element.innerHTML = thelist_content
+			  }
+			};
+			xhttp.open("GET", url, true);
+			xhttp.send();
+  		}
+	</script>
+</head>
+<body>
+	Search Text: <input type="text" id="search" name="search"><br>
+	<input type="button" value="submit" onclick="dosubmit()">
+	<ol id="thelist">
+	</ol>
+</body>
+</html>

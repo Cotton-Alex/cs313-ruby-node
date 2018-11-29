@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<% include ../partials/header.ejs %>
+<!-- <script> var funcLib = require("../pages/funcLib.js"); </script> -->
+<script>
+
+function updatePrice(){
+    var letter_type_val = document.getElementById("letter_type").value;
+    var letter_ounce_val = document.getElementById("letter_ounce").value;
+
+    console.log(letter_type_val);
+    console.log(letter_ounce_val);
+
+    <% 
+    const express = require('express')
+    const path = require('path')
+    const { Pool } = require('pg');
+    const pool = new Pool({
+      connectionString: process.env.DATABASE_URL,
+      ssl: true
+    });
+    const PORT = process.env.PORT || 5000
+    console.log("01");
+    express()
+        try {
+          const client = await pool.connect()
+          const result = await client.query('SELECT price FROM postage WHERE postage_name_id = ' + letter_type + ' and max_weight = ' + letter_ounce + ';'); 
+          // const results = { 'results': (result) ? result.rows : null};
+          // res.render('pages/postage', results );
+          client.release();
+          console.log(result);
+        } catch (err) {
+          console.error(err);
+          res.send("Error " + err);
+        }
+        %>
+}
+
+</script>
+</head>
+
+<body>
+<% include ../partials/nav.ejs %>
+
+<div class="container">
+<h2>Database Results</h2>
+
+<select id ="letter_type" onchange="updatePrice()">
+    <option value=1>Letters (Stamped)</option>
+    <option value=2>Letters (Metered)</option>
+    <option value=3>Postcard</option>
+    <option value=4>Large Envelopes (Flats)</option>
+    <option value=5>First-Class Package Service - Retail</option>
+    <option value=6>Keys and Identification Devices</option>
+</select>	
+<select id="letter_ounce" onchange="updatePrice()">
+    <option value=1>less than 1 ounce</option>
+    <option value=2>less than 2 ounces</option>
+    <option value=3>less than 3 ounces</option>
+    <option value=3.5>less than 3.5 ounces</option>
+    <option value=4>less than 4 ounces</option>
+    <option value=5>less than 5 ounces</option>
+    <option value=6>less than 6 ounces</option>
+    <option value=7>less than 7 ounces</option>
+    <option value=8>less than 8 ounces</option>
+    <option value=9>less than 9 ounces</option>
+    <option value=10>less than 10 ounces</option>
+    <option value=11>less than 11 ounces</option>
+    <option value=12>less than 12 ounces</option>
+    <option value=13>less than 13 ounces</option>
+</select>
+<!-- <button type="button" onclick="updatedPrice">Price</button> -->
+<!-- <select>
+    <% results.forEach(function(r) { %>
+        <option value="<%= r.max_weight %>">less than <%= r.max_weight %> ounce </option>
+    <% }); %>
+</select> -->
+<!-- <ul>
+    <% results.forEach(function(r) { %>
+        <li><%= r.postage_id %> - <%= r.postage_name %> - <%= r.max_weight %> - <%= r.price %></li>
+    <% }); %>
+</ul> -->
+
+</div>
+
+</body>
+</html>
