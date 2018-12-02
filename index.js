@@ -26,9 +26,9 @@ app.get('/', async (req, res) => {
       res.send("Error " + err);
     }
   })
-// app.get('/read', function(req,res) {
+ app.get('/read', function(req,res) {
 
-// });
+ });
 // app.get('/transcribe', function(req,res) {
 
 // });
