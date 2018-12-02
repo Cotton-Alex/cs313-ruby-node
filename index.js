@@ -26,4 +26,21 @@ app.get('/', async (req, res) => {
       res.send("Error " + err);
     }
   })
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+app.get('/transcribe', function(req,res) {
+
+});
+
+
+
+
+app.get('/', function(req,res) {
+
+});
+app.get('/', function(req,res) {
+
+});
+app.get('/', function(req,res) {
+
+});
+
+  //.listen(PORT, () => console.log(`Listening on ${ PORT }`))
