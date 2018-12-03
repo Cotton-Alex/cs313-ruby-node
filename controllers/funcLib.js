@@ -1,5 +1,5 @@
 function index(req,res) {
-	console.log("funcLib.read() called")
+	console.log("funcLib.index() called")
 }
 
 function read(req,res) {
@@ -14,6 +14,7 @@ function transcribe(req,res) {
 
 
 module.exports = {
+	index: index,
 	read: read,
 	transcribe: transcribe
 };
