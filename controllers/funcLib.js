@@ -1,3 +1,7 @@
+function index(req,res) {
+	console.log("funcLib.read() called")
+}
+
 function read(req,res) {
 	console.log("funcLib.read() called")
 }
