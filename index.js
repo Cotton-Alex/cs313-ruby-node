@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const { Pool } = require('pg');
+const funcLib = require('./controllers/funcLib.js');
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: true
@@ -27,12 +28,10 @@ app.get('/', async (req, res) => {
     }
 })
 
-app.get('/read', function(req,res) {
+app.get('/read', funcLib.read);
 
-})
+app.get('/transcribe', funcLib.transcribe);
 
-app.get('/transcribe', function(req,res) {
-
-})
-
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+app.listen(PORT, function() {
+	console.log("Listening on " + PORT);
+});
