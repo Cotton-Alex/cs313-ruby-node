@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const { Pool } = require('pg');
-const funcContoller = require('./controllers/controller.js');
+const contoller = require('./controllers/controller.js');
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: true
