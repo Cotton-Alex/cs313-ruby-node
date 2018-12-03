@@ -10,9 +10,9 @@ const PORT = process.env.PORT || 5000
 
 var app = express();
 
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
   // .get('/', (req, res) => res.render('pages/index'))
@@ -30,7 +30,7 @@ app.get('/all', async (req, res) => {
     }
 });
 
-app.get('/', async (req, res) => {
+app.get('/all2', async (req, res) => {
     try {
       const client = await pool.connect()
       const result = await client.query('SELECT * FROM entry');
@@ -43,10 +43,10 @@ app.get('/', async (req, res) => {
     }
 });
 
-app.get('/read', controller.read);
+app.get("/read", controller.read);
 
-app.get('/transcribe', controller.getTranscribe);
-app.post('/transcribe', controller.postTranscribe);
+app.get("/transcribe", controller.getTranscribe);
+app.post("/transcribe", controller.postTranscribe);
 
 app.listen(PORT, function() {
 	console.log("Listening on " + PORT);
