@@ -10,7 +10,7 @@ function index(req,res) {
 	}
 
 	res.json(results);
-}
+};
 
 function read(req,res) {
 	console.log("controller.read() called");
@@ -24,7 +24,7 @@ function read(req,res) {
 	}
 
 	res.json(results);
-}
+};
 
 function getTranscribe(req,res) {
 	console.log("controller.getTranscribe() called");
@@ -38,7 +38,7 @@ function getTranscribe(req,res) {
 	}
 
 	res.json(results);
-}
+};
 
 function postTranscribe(req,res) {
 	console.log("controller.postTranscribe() called");
@@ -52,7 +52,7 @@ function postTranscribe(req,res) {
 	}
 
 	res.json(results);
-}
+};
 
 module.exports = {
 	index: index,
