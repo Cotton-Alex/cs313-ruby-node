@@ -1,5 +1,5 @@
 function index(req,res) {
-	console.log("funcController.index() called");
+	console.log("controller.index() called");
 
 	var results = {
 		indexEntries: [
@@ -13,7 +13,7 @@ function index(req,res) {
 }
 
 function read(req,res) {
-	console.log("funcController.read() called");
+	console.log("controller.read() called");
 	
 	var results = {
 		readEntries: [
@@ -27,7 +27,7 @@ function read(req,res) {
 }
 
 function getTranscribe(req,res) {
-	console.log("transcribeController.getTranscribe() called");
+	console.log("controller.getTranscribe() called");
 
 	var results = {
 		transcribeEntries: [
@@ -41,7 +41,7 @@ function getTranscribe(req,res) {
 }
 
 function postTranscribe(req,res) {
-	console.log("transcribeController.postTranscribe() called");
+	console.log("controller.postTranscribe() called");
 
 	var results = {
 		postTranscribeEntries: [
