@@ -17,7 +17,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
   // .get('/', (req, res) => res.render('pages/index'))
   // .get('/postage', async (req, res) => {
-app.get('/all', async (req, res) => {
+app.get('/', async (req, res) => {
     try {
       const client = await pool.connect()
       const result = await client.query('SELECT * FROM entry');
