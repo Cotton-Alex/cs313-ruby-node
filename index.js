@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const { Pool } = require('pg');
-const funcContoller = require('./controllers/controller.js');
+const contoller = require('./controllers/controller.js');
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: true
@@ -30,7 +30,7 @@ app.get('/', async (req, res) => {
     }
 });
 
-app.get('/all2', async (req, res) => {
+app.get('/page', async (req, res) => {
     try {
       const client = await pool.connect()
       const result = await client.query('SELECT * FROM entry');
@@ -43,9 +43,9 @@ app.get('/all2', async (req, res) => {
     }
 });
 
-app.get("/read", funcContoller.read);
-app.get("/transcribe", funcContoller.getTranscribe);
-app.post("/transcribe", funcContoller.postTranscribe);
+app.get("/read", contoller.read);
+app.get("/transcribe", contoller.getTranscribe);
+app.post("/transcribe", contoller.postTranscribe);
 
 app.listen(PORT, function() {
 	console.log("Listening on " + PORT);
