@@ -7,18 +7,19 @@
 
 <body>
 	<% include ./partials/header %>
-	<% include ./partials/date_selector %>
-
-	<div class="container">
-		<h2>Entry Data - in pages</h2>
-
-			<ul>
-			    <% results.forEach(function(r) { %>
-			        <li><%= r.entry_date %> - <%= r.entry_text %></li>
-			    <% }); %>
-			</ul>
-
-		</div>
+	<main>
+        <div class="journal_page_container">
+			<% include ./partials/date_selector %>
+			<div class="container">
+				<h2>Entry Data - in pages</h2>
+				<ul>
+				    <% results.forEach(function(r) { %>
+				        <li><%= r.entry_date %> - <%= r.entry_text %></li>
+				    <% }); %>
+				</ul>
+			</div>
+		 </div>
+    </main>
 		<% include ./partials/footer %>
 </body>
 </html>
