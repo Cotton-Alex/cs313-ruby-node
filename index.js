@@ -20,8 +20,7 @@ app.set('view engine', 'ejs')
 app.get('/', async (req, res) => {
     try {
       const client = await pool.connect()
-      const result = await client.query('SELECT entry.entry_date, entry.entry_text FROM entry INNER JOIN image
-                                        ON entry.image_id = image.image_id WHERE image_id = 1;');
+      const result = await client.query('SELECT entry.entry_date, entry.entry_text FROM entry WHERE image_id = 1;');
       const results = { 'results': (result) ? result.rows : null};
       res.render('pages/index', results );
       client.release();
