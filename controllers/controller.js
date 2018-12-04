@@ -1,9 +1,9 @@
-const models = require("../models/model.js");
+const model = require("../models/model.js");
 
 function cRead(req,res) {
 	console.log("controller.read() called");
 	
-	var results = models.mGetByImageNameRead(name);
+	var results = model.mGetByImageNameRead();
 
 	res.json(results);
 };
@@ -11,7 +11,7 @@ function cRead(req,res) {
 function cGetTranscribe(req,res) {
 	console.log("controller.getTranscribe() called");
 
-	var results = models.mGetByImageNameTran(name);
+	var results = model.mGetByImageNameTran(id);
 
 	res.json(results);
 };
@@ -19,7 +19,7 @@ function cGetTranscribe(req,res) {
 function cPostTranscribe(req,res) {
 	console.log("controller.postTranscribe() called");
 
-	var results = models.mInsertEntry(entry);
+	var results = model.mInsertEntry(date);
 
 	res.json(results);
 };

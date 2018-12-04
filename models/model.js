@@ -2,15 +2,15 @@ function mGetByImageNameRead() {
 	
 	var results = {
 		readEntries: [
-		{id:1, name:"entry 01"},
-		{id:2, name:"entry 02"},
-		{id:3, name:"entry 03"}
+		{name:1, name:"entry 01"},
+		{name:2, name:"entry 02"},
+		{name:3, name:"entry 03"}
 		]
 	}
 	return results;
 }
 
-function mGetByImageNameTran(name) {
+function mGetByImageNameTran(id) {
 
 	var results = {
 		transcribeEntries: [
@@ -22,7 +22,7 @@ function mGetByImageNameTran(name) {
 	return results;
 }
 
-function mInsertEntry(entry) {
+function mInsertEntry(date) {
 
 	var results = {success:true};
 
