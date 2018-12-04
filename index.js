@@ -33,7 +33,7 @@ app.get('/', async (req, res) => {
 app.get('/page', async (req, res) => {
     try {
       const client = await pool.connect()
-      const result = await client.query('journal.journal_id,
+      const result = await client.query('SELECT journal.journal_id,
                                               journal.journal_name,
                                               image.image_name,
       										entry.entry_id,
