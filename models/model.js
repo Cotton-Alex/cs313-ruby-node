@@ -24,7 +24,13 @@ function mGetByImageNameTran(id) {
 
 function mInsertEntry(date) {
 
-	var results = {success:true};
+	var results = {
+		transcribeEntries: [
+		{id:1, name:"post 01"},
+		{id:2, name:"post 02"},
+		{id:3, name:"post 03"}
+		]
+	}
 
 	return results;
 }

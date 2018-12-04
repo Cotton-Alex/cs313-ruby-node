@@ -19,7 +19,7 @@ function cGetTranscribe(req,res) {
 function cPostTranscribe(req,res) {
 	console.log("controller.postTranscribe() called");
 
-	var results = model.mInsertEntry(date);
+	var results = model.mInsertEntry(id);
 
 	res.json(results);
 };
