@@ -1,62 +1,31 @@
-function index(req,res) {
-	console.log("controller.index() called");
+const models = require("../models/model.js");
 
-	var results = {
-		indexEntries: [
-		{id:1, name:"entry 01"},
-		{id:2, name:"entry 02"},
-		{id:3, name:"entry 03"}
-		]
-	}
-
-	res.json(results);
-};
-
-function read(req,res) {
+function cRead(req,res) {
 	console.log("controller.read() called");
 	
-	var results = {
-		readEntries: [
-		{id:1, name:"entry 01"},
-		{id:2, name:"entry 02"},
-		{id:3, name:"entry 03"}
-		]
-	}
+	var results = models.mGetByImageNameRead(name);
 
 	res.json(results);
 };
 
-function getTranscribe(req,res) {
+function cGetTranscribe(req,res) {
 	console.log("controller.getTranscribe() called");
 
-	var results = {
-		transcribeEntries: [
-		{id:1, name:"entry 01"},
-		{id:2, name:"entry 02"},
-		{id:3, name:"entry 03"}
-		]
-	}
+	var results = models.mGetByImageNameTran(name);
 
 	res.json(results);
 };
 
-function postTranscribe(req,res) {
+function cPostTranscribe(req,res) {
 	console.log("controller.postTranscribe() called");
 
-	var results = {
-		postTranscribeEntries: [
-		{id:1, name:"entry 01"},
-		{id:2, name:"entry 02"},
-		{id:3, name:"entry 03"}
-		]
-	}
+	var results = models.mInsertEntry(entry);
 
 	res.json(results);
 };
 
 module.exports = {
-	index: index,
-	read: read,
-	getTranscribe: getTranscribe,
-	postTranscribe: postTranscribe
+	cRead: cRead,
+	cGetTranscribe: cGetTranscribe,
+	cPostTranscribe: cPostTranscribe
 };
