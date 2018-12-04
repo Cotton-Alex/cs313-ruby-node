@@ -33,20 +33,19 @@ app.get('/', async (req, res) => {
 app.get('/page', async (req, res) => {
     try {
       const client = await pool.connect()
-      const result = await client.query('SELECT journal.journal_id,
-                                              journal.journal_name,
-                                              image.image_name,
-      										entry.entry_id,
-                                              entry.page_date, 
-                                              entry.image_id, 
-                                              entry.entry_date, 
-                                              entry.entry_text
-                                              FROM entry
-                                              INNER JOIN image
-                                              ON entry.image_id = image.image_id
-                                              INNER JOIN journal
-                                              ON entry.journal_id = journal.journal_id
-                                              WHERE image.image_name = "1946-1950-01-07.jpg"');
+      const result = await client.query("SELECT
+                                        journal.journal_name,
+                                        image.image_name,
+                                        entry.page_date, 
+                                        entry.image_id, 
+                                        entry.entry_date, 
+                                        entry.entry_text
+                                        FROM entry
+                                        INNER JOIN image
+                                        ON entry.image_id = image.image_id
+                                        INNER JOIN journal
+                                        ON entry.journal_id = journal.journal_id
+                                        WHERE image.image_name = '1946-1950-01-01.jpg';");
       const results = { 'results': (result) ? result.rows : null};
       res.render('pages/index', results );
       client.release();
