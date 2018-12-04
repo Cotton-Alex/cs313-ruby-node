@@ -20,7 +20,7 @@ app.set('view engine', 'ejs')
 app.get('/', async (req, res) => {
     try {
       const client = await pool.connect()
-      const result = await client.query('SELECT * FROM entry');
+      const result = await client.query('SELECT * FROM entry;');
       const results = { 'results': (result) ? result.rows : null};
       res.render('pages/index', results );
       client.release();
@@ -33,7 +33,7 @@ app.get('/', async (req, res) => {
 app.get('/page', async (req, res) => {
     try {
       const client = await pool.connect()
-      const result = await client.query("SELECT * FROM entry;");
+      const result = await client.query("SELECT * FROM entry");
       const results = { 'results': (result) ? result.rows : null};
       res.render('pages/index', results );
       client.release();
