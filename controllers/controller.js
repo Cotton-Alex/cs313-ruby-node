@@ -10,7 +10,7 @@ function cRead(req,res) {
 
 function cGetTranscribe(req,res) {
 	console.log("controller.getTranscribe() called");
-
+	var id = req.query.id;
 	var results = model.mGetByImageNameTran(id);
 
 	res.json(results);
@@ -18,7 +18,7 @@ function cGetTranscribe(req,res) {
 
 function cPostTranscribe(req,res) {
 	console.log("controller.postTranscribe() called");
-
+	var id = req.query.id;
 	var results = model.mInsertEntry(id);
 
 	res.json(results);
