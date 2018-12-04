@@ -46,7 +46,7 @@ app.get('/page', async (req, res) => {
                                               ON entry.image_id = image.image_id
                                               INNER JOIN journal
                                               ON entry.journal_id = journal.journal_id
-                                              WHERE image.image_name = 1946-1950-01-07.jpg');
+                                              WHERE image.image_name = "1946-1950-01-07.jpg"');
       const results = { 'results': (result) ? result.rows : null};
       res.render('pages/index', results );
       client.release();
