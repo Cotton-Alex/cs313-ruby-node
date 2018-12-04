@@ -22,7 +22,7 @@ function mGetByImageNameTran(id) {
 	return results;
 }
 
-function mInsertEntry(date) {
+function mInsertEntry(id) {
 
 	var results = {
 		transcribeEntries: [
