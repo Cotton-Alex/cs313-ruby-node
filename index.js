@@ -33,7 +33,7 @@ app.get('/', async (req, res) => {
 app.get('/page', async (req, res) => {
     try {
       const client = await pool.connect()
-      const result = await client.query("SELECT
+      const result = await client.query('SELECT
                                         journal.journal_name,
                                         image.image_name,
                                         entry.page_date, 
@@ -45,7 +45,7 @@ app.get('/page', async (req, res) => {
                                         ON entry.image_id = image.image_id
                                         INNER JOIN journal
                                         ON entry.journal_id = journal.journal_id
-                                        WHERE image.image_name = '1946-1950-01-01.jpg';");
+                                        WHERE image.image_name = ' + '1946-1950-01-01.jpg;');
       const results = { 'results': (result) ? result.rows : null};
       res.render('pages/index', results );
       client.release();
