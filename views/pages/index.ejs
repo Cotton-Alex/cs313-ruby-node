@@ -10,13 +10,23 @@
 	<main>
         <div class="journal_page_container">
 			<% include ./partials/date_selector %>
-			<div class="container">
-				<h2>Entry Data - in pages</h2>
-				<ul>
-				    <% results.forEach(function(r) { %>
-				        <li><%= r.entry_date %> - <%= r.entry_text %></li>
-				    <% }); %>
-				</ul>
+			<!-- <?php
+				echo '<br>';
+				echo '<img id="journal_page" src="http://www.rubysjournal.com/single_images/' . $image_file_name . '" alt=RubysJournal" />';
+				?> -->
+
+            <div id="journal_text">
+                <section>
+                    <table>
+                        <tbody>
+							<ul>
+							    <% results.forEach(function(r) { %>
+							        <li><%= r.entry_date %> - <%= r.entry_text %></li>
+							    <% }); %>
+							</ul>
+						</tbody>
+					</table>
+				</section>
 			</div>
 		 </div>
     </main>
