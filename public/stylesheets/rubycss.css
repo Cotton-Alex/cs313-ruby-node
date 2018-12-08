@@ -40,7 +40,7 @@ header {
 #page_header {
     background-size: 100%;
     background-image: linear-gradient(rgba(255,255,255,.75),
-		rgba(255,255,255,0.75)), url("http://rubysjournal.com/images/headerBackground.jpg");
+		rgba(255,255,255,0.75)), url("https://rubysjournal.com/images/headerBackground.jpg");
 }
 
 #top_bar {
@@ -565,7 +565,7 @@ footer {
     border-top: 2px solid #262626;
     background-size: 100%;
     background-image: linear-gradient(rgba(255,255,255,.75),
-        rgba(255,255,255,0.75)), url("http://rubysjournal.com/images/footerBackground.jpg");
+        rgba(255,255,255,0.75)), url("https://rubysjournal.com/images/footerBackground.jpg");
     text-align: center;
     font-family: 'Raleway', san-serif;
     font-weight: 300;
