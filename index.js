@@ -1,13 +1,15 @@
+const bodyParser = require('body-parser')
 const express = require('express')
 const path = require('path')
-const { Pool } = require('pg');
-const contoller = require('./controllers/controller.js');
+const { Pool } = require('pg')
+const contoller = require('./controllers/controller.js')
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: true
 });
 const PORT = process.env.PORT || 5000
 
+var session = require('express-session');
 var app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));

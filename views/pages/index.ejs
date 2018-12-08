@@ -16,7 +16,20 @@
 				?> -->
 
             <div id="journal_text">
-                <section>
+                <section id="section_read">
+                	<h1>read</h1>
+                    <table>
+                        <tbody>
+							<ul>
+							    <% results.forEach(function(r) { %>
+							        <li><%= r.entry_date %> - <%= r.entry_text %></li>
+							    <% }); %>
+							</ul>
+						</tbody>
+					</table>
+				</section>
+				<section id="section_transcribe">
+					<h1>transcribe</h1>
                     <table>
                         <tbody>
 							<ul>

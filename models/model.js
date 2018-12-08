@@ -35,8 +35,20 @@ function mInsertEntry(id) {
 	return results;
 }
 
+function displayRead() {
+	document.getElementById('section_read').style.display = 'block';
+	document.getElementById('section_transcribe').style.display = 'none';
+}
+
+function displayTranscribe() {
+	document.getElementById('section_read').style.display = 'none';
+	document.getElementById('section_transcribe').style.display = 'block';
+}
+
 module.exports = {
 	mGetByImageNameRead: mGetByImageNameRead,
 	mGetByImageNameTran: mGetByImageNameTran,
-	mInsertEntry: mInsertEntry
+	mInsertEntry: mInsertEntry,
+	displayRead: displayRead,
+	displayTranscribe: displayTranscribe
 };
