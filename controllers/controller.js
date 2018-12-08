@@ -1,34 +1,34 @@
 const model = require("../models/model.js");
 
-function cRead(req,res) {
+function read(req,res) {
 	console.log("controller.read() called");
 	model.displayRead();
-	var results = model.mGetByImageNameRead();
+	var results = model.getByImageNameRead();
 
 	res.json(results);
 };
 
-function cGetTranscribe(req,res) {
+function getTranscribe(req,res) {
 	console.log("controller.getTranscribe() called");
 	//hide read & show getTranscribe
 	model.displayTranscribe();
 	var id = req.query.id;
-	var results = model.mGetByImageNameTran(id);
+	var results = model.getByImageNameTran(id);
 
 	res.json(results);
 };
 
-function cPostTranscribe(req,res) {
+function postTranscribe(req,res) {
 	console.log("controller.postTranscribe() called");
 	model.displayTranscribe();
 	var id = req.query.id;
-	var results = model.mInsertEntry(id);
+	var results = model.insertEntry(id);
 
 	res.json(results);
 };
 
 module.exports = {
-	cRead: cRead,
-	cGetTranscribe: cGetTranscribe,
-	cPostTranscribe: cPostTranscribe
+	read: read,
+	getTranscribe: getTranscribe,
+	postTranscribe: postTranscribe
 };

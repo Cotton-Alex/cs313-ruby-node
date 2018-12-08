@@ -1,4 +1,4 @@
-function mGetByImageNameRead() {
+function getByImageNameRead() {
 	
 	var results = {
 		readEntries: [
@@ -10,7 +10,7 @@ function mGetByImageNameRead() {
 	return results;
 }
 
-function mGetByImageNameTran(id) {
+function getByImageNameTran(id) {
 
 	var results = {
 		transcribeEntries: [
@@ -22,7 +22,7 @@ function mGetByImageNameTran(id) {
 	return results;
 }
 
-function mInsertEntry(id) {
+function insertEntry(id) {
 
 	var results = {
 		transcribeEntries: [
@@ -46,9 +46,9 @@ function displayTranscribe() {
 }
 
 module.exports = {
-	mGetByImageNameRead: mGetByImageNameRead,
-	mGetByImageNameTran: mGetByImageNameTran,
-	mInsertEntry: mInsertEntry,
+	getByImageNameRead: getByImageNameRead,
+	getByImageNameTran: getByImageNameTran,
+	insertEntry: insertEntry,
 	displayRead: displayRead,
 	displayTranscribe: displayTranscribe
 };

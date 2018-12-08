@@ -45,9 +45,9 @@ app.get('/page', async (req, res) => {
     }
 });
 
-app.get("/read", contoller.cRead);
-app.get("/transcribe", contoller.cGetTranscribe);
-app.post("/transcribe", contoller.cPostTranscribe);
+app.get("/read", contoller.read);
+app.get("/transcribe", contoller.getTranscribe);
+app.post("/transcribe", contoller.postTranscribe);
 
 app.listen(PORT, function() {
 	console.log("Listening on " + PORT);
