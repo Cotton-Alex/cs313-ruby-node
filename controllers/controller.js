@@ -2,7 +2,7 @@ const model = require("../models/model.js");
 
 function cRead(req,res) {
 	console.log("controller.read() called");
-	displayRead();
+	model.displayRead();
 	var results = model.mGetByImageNameRead();
 
 	res.json(results);
