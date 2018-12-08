@@ -36,11 +36,13 @@ function insertEntry(id) {
 }
 
 function displayRead() {
+	console.log("model.displayRead() called");
 	document.getElementById('section_read').style.display = 'block';
 	document.getElementById('section_transcribe').style.display = 'none';
 }
 
 function displayTranscribe() {
+	console.log("model.displayTranscribe() called");
 	document.getElementById('section_read').style.display = 'none';
 	document.getElementById('section_transcribe').style.display = 'block';
 }
