@@ -2,7 +2,9 @@ const model = require("../models/model.js");
 
 function read(req,res) {
 	console.log("controller.read() called");
-	model.displayRead();
+	//model.displayRead();
+	document.getElementById('section_read').style.display = 'block';
+	document.getElementById('section_transcribe').style.display = 'none';
 	//var results = model.getByImageNameRead();
 
 	//res.json(results);
@@ -11,7 +13,9 @@ function read(req,res) {
 function getTranscribe(req,res) {
 	console.log("controller.getTranscribe() called");
 	//hide read & show getTranscribe
-	model.displayTranscribe();
+	//model.displayTranscribe();
+	document.getElementById('section_read').style.display = 'none';
+	document.getElementById('section_transcribe').style.display = 'block';
 	//var id = req.query.id;
 	//var results = model.getByImageNameTran(id);
 
@@ -20,7 +24,9 @@ function getTranscribe(req,res) {
 
 function postTranscribe(req,res) {
 	console.log("controller.postTranscribe() called");
-	model.displayTranscribe();
+	//model.displayTranscribe();
+	document.getElementById('section_read').style.display = 'none';
+	document.getElementById('section_transcribe').style.display = 'block';
 	//var id = req.query.id;
 	//var results = model.insertEntry(id);
 
