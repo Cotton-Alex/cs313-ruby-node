@@ -9,8 +9,8 @@ function read(req, res) {
     console.log("image_file_name = " + image_file_name);
 
     model.displayRead(); // hide transcribe div, show read div
-    document.getElementById('section_read').style.display = 'block';
-    document.getElementById('section_transcribe').style.display = 'none';
+    //document.getElementById('section_read').style.display = 'block';
+    //document.getElementById('section_transcribe').style.display = 'none';
     model.getByImageNameRead(image_file_name, function(error, results) {
         res.json(results);
     });
