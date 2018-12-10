@@ -26,18 +26,6 @@ function insertEntry(entry_date, entry_text, callback) {
 	callback(null, results);
 }
 
-function displayRead() { //maybe use this to change tag from block to none
-	console.log("model.displayRead() called");
-	//document.getElementById('section_read').style.display = 'block';
-    //document.getElementById('section_transcribe').style.display = 'none';
-}
-
-function displayTranscribe() { //maybe use this to change tag from block to none
-	console.log("model.displayTranscribe() called");
-	//document.getElementById('section_read').style.display = 'none';
-    //document.getElementById('section_transcribe').style.display = 'block';
-}
-
 module.exports = {
 	getByImageNameRead: getByImageNameRead,
 	getByImageNameTran: getByImageNameTran,
