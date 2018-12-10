@@ -16,7 +16,7 @@
 		</select> 
 	</span>
 	<span>
-		<select name="journal_day" id="journal_day">
+		<select name="journal_day" id="journal_day" onchange="dateSelectionPersistance()">
 			<option value="01" >1</option>
 			<option value="02" >2</option>
 			<option value="03" >3</option>

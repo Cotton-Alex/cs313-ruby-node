@@ -14,19 +14,19 @@ function checkLocalStorage() {
         if (localStorage.journalMode === "read") {
             displayRead();
         }
-        if (localStorage.lsJournal_day !== undefined) {
+        if (localStorage.lsJournal_day !== "undefined") {
             journal_day = localStorage.lsJournal_day;
         }
         if (localStorage.lsJournal_day === null) {
             localStorage.setItem(lsJournal_day, "01");
         }
-        if (localStorage.lsJournal_month !== undefined) {
+        if (localStorage.lsJournal_month !== "undefined") {
             journal_month = localStorage.lsJournal_month;
         }
         if (localStorage.lsJournal_month === null) {
             localStorage.setItem(lsJournal_month, "01");
         }
-        if (localStorage.lsJournal_name !== undefined) {
+        if (localStorage.lsJournal_name !== "undefined") {
             journal_name = localStorage.lsJournal_name;
         }
         if (localStorage.lsJournal_name === null) {
@@ -38,15 +38,15 @@ function checkLocalStorage() {
     }
 }
 
-document.querySelector("#journal_day").addEventListener('change', dateSelectionPersistance);
+//document.querySelector("#journal_day").addEventListener('change', dateSelectionPersistance);
 
 function dateSelectionPersistance() {
-    // document.getElementById('journal_name').options[document.getElementById('journal_name').selectedIndex].text;
-    // document.getElementById('journal_month').options[document.getElementById('journal_month').selectedIndex].text;
-    // document.getElementById('journal_day').options[document.getElementById('journal_day').selectedIndex].text;
-    localStorage.setItem(lsJournal_day, document.getElementById('journal_day').selectedIndex);
-    localStorage.setItem(lsJournal_month, document.getElementById('journal_month').selectedIndex);
-    localStorage.setItem(lsJournal_name, document.getElementById('journal_name').selectedIndex);
+    var journalDayIndex = document.getElementById('journal_day').selectedIndex;
+    var journalMonthIndex = document.getElementById('journal_month').selectedIndex;
+    var journalNameIndex = document.getElementById('journal_name').selectedIndex;
+    localStorage.setItem(lsJournal_day, journalDayIndex);
+    localStorage.setItem(lsJournal_month, journalMonthIndex);
+    localStorage.setItem(lsJournal_name, journalNameIndex);
 
     console.log("selected day index is " + journalDayIndex);
     console.log("selected month index is " + journalMonthIndex);
