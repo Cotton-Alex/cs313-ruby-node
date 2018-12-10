@@ -13,11 +13,20 @@ function checkLocalStorage() {
         if (localStorage.journal_name !== undefined) {
             journal_name = localStorage.journal_name;
         }
+        if (localStorage.journal_name === undefined) {
+        	localStorage.setItem(journal_name, "1946-1950")
+        }
         if (localStorage.journal_month !== undefined) {
             journal_month = localStorage.journal_month;
         }
+        if (localStorage.journal_month === undefined) {
+        	localStorage.setItem(journal_month, "01")
+        }
         if (localStorage.journal_day !== undefined) {
             journal_day = localStorage.journal_day;
+        }
+        if (localStorage.journal_day === undefined) {
+        	localStorage.setItem(journal_day, "01")
         }
 
     } else {
