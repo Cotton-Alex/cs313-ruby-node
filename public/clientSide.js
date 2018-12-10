@@ -14,22 +14,22 @@ function checkLocalStorage() {
             displayTranscribe();
         }
         if (localStorage.journal_name !== undefined) {
-            journal_name = localStorage.journal_name;
+            journal_name = localStorage.lsJournal_name;
         }
         if (localStorage.journal_name === undefined) {
-        	localStorage.setItem(journal_name, "1946-1950")
+        	localStorage.setItem(lsJournal_name, "1946-1950");
         }
         if (localStorage.journal_month !== undefined) {
-            journal_month = localStorage.journal_month;
+            journal_month = localStorage.lsJournal_month;
         }
         if (localStorage.journal_month === undefined) {
-        	localStorage.setItem(journal_month, "01")
+        	localStorage.setItem(lsJournal_month, "01");
         }
         if (localStorage.journal_day !== undefined) {
-            journal_day = localStorage.journal_day;
+            journal_day = localStorage.lsJournal_day;
         }
         if (localStorage.journal_day === undefined) {
-        	localStorage.setItem(journal_day, "01")
+        	localStorage.setItem(lsJournal_day, "01");
         }
 
     } else {
@@ -44,6 +44,7 @@ function dateSelectionPersistance() {
     // document.getElementById('journal_month').options[document.getElementById('journal_month').selectedIndex].text;
     // document.getElementById('journal_day').options[document.getElementById('journal_day').selectedIndex].text;
     var journalDayIndex = document.getElementById('journal_day').selectedIndex;
+
     console.log("selected day index is " + journalDayIndex);
 }
 
