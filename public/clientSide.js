@@ -16,19 +16,19 @@ function checkLocalStorage() {
         if (localStorage.lsJournal_day !== undefined) {
             journal_day = localStorage.lsJournal_day;
         }
-        if (localStorage.lsJournal_day === undefined) {
+        if (localStorage.lsJournal_day === null) {
             localStorage.setItem(lsJournal_day, "01");
         }
         if (localStorage.lsJournal_month !== undefined) {
             journal_month = localStorage.lsJournal_month;
         }
-        if (localStorage.lsJournal_month === undefined) {
+        if (localStorage.lsJournal_month === null) {
             localStorage.setItem(lsJournal_month, "01");
         }
         if (localStorage.lsJournal_name !== undefined) {
             journal_name = localStorage.lsJournal_name;
         }
-        if (localStorage.lsJournal_name === undefined) {
+        if (localStorage.lsJournal_name === null) {
             localStorage.setItem(lsJournal_name, "1946-1950");
         }
 
@@ -37,15 +37,17 @@ function checkLocalStorage() {
     }
 }
 
-//document.querySelector('#date_selector_go').addEventListener('click', dateSelectionPersistance);
-
 function dateSelectionPersistance() {
     // document.getElementById('journal_name').options[document.getElementById('journal_name').selectedIndex].text;
     // document.getElementById('journal_month').options[document.getElementById('journal_month').selectedIndex].text;
     // document.getElementById('journal_day').options[document.getElementById('journal_day').selectedIndex].text;
-    var journalDayIndex = document.getElementById('journal_day').selectedIndex;
+    localStorage.setItem(lsJournal_day, document.getElementById('journal_day').selectedIndex);
+    localStorage.setItem(lsJournal_month, document.getElementById('journal_month').selectedIndex);
+    localStorage.setItem(lsJournal_name, document.getElementById('journal_name').selectedIndex);
 
     console.log("selected day index is " + journalDayIndex);
+    console.log("selected month index is " + journalMonthIndex);
+    console.log("selected journal index is " + journalNameIndex);
 }
 
 function displayRead() {
