@@ -1,6 +1,6 @@
 <form action="" id="date_selector" method="get">
 	<span>
-		<select name="journal_month" id="journal_month" oninput="dateSelectionPersistance()">
+		<select name="journal_month" id="journal_month" onchange="dateSelectionPersistance()">
 			<option value="01" selected>January</option>
 			<option value="02" disabled>February</option>
 			<option value="03" disabled>March</option>
@@ -16,7 +16,7 @@
 		</select> 
 	</span>
 	<span>
-		<select name="journal_day" id="journal_day" oninput="dateSelectionPersistance()">
+		<select name="journal_day" id="journal_day" onchange="dateSelectionPersistance()">
 			<option value="01" >1</option>
 			<option value="02" >2</option>
 			<option value="03" >3</option>
@@ -51,7 +51,7 @@
 		</select>
 	</span>
 	<span>
-		<select name="journal_name" id="journal_name" oninput="dateSelectionPersistance()">
+		<select name="journal_name" id="journal_name" onchange="dateSelectionPersistance()">
 			<option value="1946-1950" selected>1946-1950</option>
 			<option value="1951-1955" disabled>1951-1955</option>
 			<option value="1956-1960" disabled>1956-1960</option>
