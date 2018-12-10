@@ -36,7 +36,7 @@ function postTranscribe(req, res) {
     model.displayTranscribe();
     //var id = req.query.id;
     var entry_date = "date";
-    var entry_text = "text from text box";
+    var entry_text = "lots of text from text box";
     model.insertEntry(entry_date, entry_text, function(error, results) {
     	res.json(results);
     });
