@@ -9,21 +9,20 @@ function getByImageNameRead(image_file_name, callback) {
 	callback(null, results);
 }
 
-function getByImageNameTran(id, callback) {
+function getByImageNameTran(image_file_name, callback) {
 
-	var results = {
-		transcribeEntries: [
-		{id:1, name:"entry 01"},
-		{id:2, name:"entry 02"},
-		{id:3, name:"entry 03"}
-		]
-	}
+	var results = {list:[{date:image_file_name, entry:"today stuff happened"},
+    {date:image_file_name, entry:"today 2 stuff happened"},
+    {date:image_file_name, entry:"today 3 stuff happened"},
+    {date:image_file_name, entry:"today 4 stuff happened"},
+    {date:image_file_name, entry:"today 5 stuff happened"}]};
+
 	callback(null, results);
 }
 
-function insertEntry(id, callback) {
+function insertEntry(entry_date, entry_text, callback) {
 
-	var results = {success:true};
+	var results = {list:[{date:entry_date, entry:entry_text}]};
 	callback(null, results);
 }
 

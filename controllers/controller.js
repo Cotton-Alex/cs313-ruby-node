@@ -18,12 +18,15 @@ function read(req, res) {
 
 function getTranscribe(req, res) {
     console.log("controller.getTranscribe() called");
-    //hide read & show getTranscribe
-    model.displayTranscribe();
+    var journal_name = "1946-1950";
+    var journal_month = "01";
+    var journal_day = "07";
+    var image_file_name = (journal_name + "-" + journal_month + "-" + journal_day + ".jpg")
+
+    model.displayTranscribe(); // hide transcribe div, show read div
     //document.getElementById('section_read').style.display = 'none';
     //document.getElementById('section_transcribe').style.display = 'block';
-    var id = req.query.id;
-    model.getByImageNameTran(id, function(error, results) {
+    model.getByImageNameTran(image_file_name, function(error, results) {
         res.json(results);
     });
 }
@@ -31,8 +34,10 @@ function getTranscribe(req, res) {
 function postTranscribe(req, res) {
     console.log("controller.postTranscribe() called");
     model.displayTranscribe();
-    var id = req.query.id;
-    model.insertEntry(id, function(error, results) {
+    //var id = req.query.id;
+    var entry_date = "date";
+    var entry_text = "text from text box";
+    model.insertEntry(entry_date, entry_text, function(error, results) {
     	res.json(results);
     });
 }
