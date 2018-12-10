@@ -39,6 +39,14 @@ function displayRead() {
 	console.log("model.displayRead() called");
 	document.getElementById('section_read').style.display = 'block';
 	document.getElementById('section_transcribe').style.display = 'none';
+	var results = {
+		readEntries: [
+		{name:1, name:"entry 01"},
+		{name:2, name:"entry 02"},
+		{name:3, name:"entry 03"}
+		]
+	}
+	return results;
 }
 
 function displayTranscribe() {

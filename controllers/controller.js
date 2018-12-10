@@ -2,10 +2,10 @@ const model = require("../models/model.js");
 
 function read(req,res) {
 	console.log("controller.read() called");
-	model.displayRead();
+	//model.displayRead();
 	//document.getElementById('section_read').style.display = 'block';
 	//document.getElementById('section_transcribe').style.display = 'none';
-	//var results = model.getByImageNameRead();
+	var results = model.getByImageNameRead();
 
 	res.json(results);
 };
