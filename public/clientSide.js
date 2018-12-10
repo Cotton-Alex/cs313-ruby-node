@@ -34,7 +34,7 @@ function checkLocalStorage() {
     }
 }
 
-document.querySelector('#date_selector_go').addEventListener('click', dateSelectionPersistance);
+//document.querySelector('#date_selector_go').addEventListener('click', dateSelectionPersistance);
 
 function dateSelectionPersistance() {
     // document.getElementById('journal_name').options[document.getElementById('journal_name').selectedIndex].text;
