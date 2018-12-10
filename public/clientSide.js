@@ -4,32 +4,32 @@ var journal_day = "01";
 
 function checkLocalStorage() {
     if (typeof(localStorage) !== "undefined") { //checking for browser compatibility with local storage
+        if (localStorage.journalMode === "transcribe") {
+            displayTranscribe();
+        }
         if (localStorage.journalMode === null) {
             displayRead();
         }
         if (localStorage.journalMode === "read") {
             displayRead();
         }
-        if (localStorage.journalMode === "transcribe") {
-            displayTranscribe();
+        if (localStorage.lsJournal_day !== undefined) {
+            journal_day = localStorage.lsJournal_day;
         }
-        if (localStorage.lsJournal_name !== undefined) {
-            journal_name = localStorage.lsJournal_name;
-        }
-        if (localStorage.lsJournal_name === undefined) {
-        	localStorage.setItem(lsJournal_name, "1946-1950");
+        if (localStorage.lsJournal_day === undefined) {
+            localStorage.setItem(lsJournal_day, "01");
         }
         if (localStorage.lsJournal_month !== undefined) {
             journal_month = localStorage.lsJournal_month;
         }
         if (localStorage.lsJournal_month === undefined) {
-        	localStorage.setItem(lsJournal_month, "01");
+            localStorage.setItem(lsJournal_month, "01");
         }
-        if (localStorage.lsJournal_day !== undefined) {
-            journal_day = localStorage.lsJournal_day;
+        if (localStorage.lsJournal_name !== undefined) {
+            journal_name = localStorage.lsJournal_name;
         }
-        if (localStorage.lsJournal_day === undefined) {
-        	localStorage.setItem(lsJournal_day, "01");
+        if (localStorage.lsJournal_name === undefined) {
+            localStorage.setItem(lsJournal_name, "1946-1950");
         }
 
     } else {
