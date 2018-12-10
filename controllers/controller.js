@@ -8,10 +8,10 @@ function read(req, res) {
     var image_file_name = (journal_name + "-" + journal_month + "-" + journal_day + ".jpg")
     console.log("image_file_name = " + image_file_name);
 
-    model.displayRead();
-    //document.getElementById('section_read').style.display = 'block';
-    //document.getElementById('section_transcribe').style.display = 'none';
-    model.getByImageNameRead(function(error, results) {
+    model.displayRead(); // hide transcribe div, show read div
+    document.getElementById('section_read').style.display = 'block';
+    document.getElementById('section_transcribe').style.display = 'none';
+    model.getByImageNameRead(image_file_name, function(error, results) {
         res.json(results);
     });
 }

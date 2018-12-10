@@ -1,12 +1,11 @@
-function getByImageNameRead(callback) {
+function getByImageNameRead(image_file_name, callback) {
 	
-	var results = {
-		readEntries: [
-		{name:1, name:"entry 01"},
-		{name:2, name:"entry 02"},
-		{name:3, name:"entry 03"}
-		]
-	}
+  	var results = {list:[{date:image_file_name, entry:"today stuff happened"},
+    {date:image_file_name, entry:"today 2 stuff happened"},
+    {date:image_file_name, entry:"today 3 stuff happened"},
+    {date:image_file_name, entry:"today 4 stuff happened"},
+    {date:image_file_name, entry:"today 5 stuff happened"}]};
+
 	callback(null, results);
 }
 
