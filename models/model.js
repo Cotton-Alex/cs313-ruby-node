@@ -31,7 +31,6 @@ function insertEntry(id) {
 		{id:3, name:"post 03"}
 		]
 	}
-
 	return results;
 }
 
