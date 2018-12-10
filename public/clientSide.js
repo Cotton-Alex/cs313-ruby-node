@@ -38,6 +38,8 @@ function checkLocalStorage() {
     }
 }
 
+document.getElementById("date_selector_go").addEventListener('onmousedown', dateSelectionPersistance);
+
 function dateSelectionPersistance() {
     // document.getElementById('journal_name').options[document.getElementById('journal_name').selectedIndex].text;
     // document.getElementById('journal_month').options[document.getElementById('journal_month').selectedIndex].text;
