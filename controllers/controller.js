@@ -13,7 +13,7 @@ function read(req, res) {
 function getTranscribe(req, res) {
     console.log("controller.getTranscribe() called");
     //hide read & show getTranscribe
-    //model.displayTranscribe();
+    model.displayTranscribe();
     //document.getElementById('section_read').style.display = 'none';
     //document.getElementById('section_transcribe').style.display = 'block';
     var id = req.query.id;
@@ -24,7 +24,7 @@ function getTranscribe(req, res) {
 
 function postTranscribe(req, res) {
     console.log("controller.postTranscribe() called");
-    //model.displayTranscribe();
+    model.displayTranscribe();
     var id = req.query.id;
     model.insertEntry(id, function(error, results) {
     	res.json(results);
