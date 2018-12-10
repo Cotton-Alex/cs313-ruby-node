@@ -1,13 +1,13 @@
-const model = require("../models/model.js");
+const model = require("java../models/model.js");
 
 function read(req,res) {
 	console.log("controller.read() called");
-	//model.displayRead();
-	document.getElementById('section_read').style.display = 'block';
-	document.getElementById('section_transcribe').style.display = 'none';
+	model.displayRead();
+	//document.getElementById('section_read').style.display = 'block';
+	//document.getElementById('section_transcribe').style.display = 'none';
 	//var results = model.getByImageNameRead();
 
-	//res.json(results);
+	res.json(results);
 };
 
 function getTranscribe(req,res) {
@@ -19,7 +19,7 @@ function getTranscribe(req,res) {
 	//var id = req.query.id;
 	//var results = model.getByImageNameTran(id);
 
-	//res.json(results);
+	res.json(results);
 };
 
 function postTranscribe(req,res) {
@@ -30,7 +30,7 @@ function postTranscribe(req,res) {
 	//var id = req.query.id;
 	//var results = model.insertEntry(id);
 
-	//res.json(results);
+	res.json(results);
 };
 
 module.exports = {

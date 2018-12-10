@@ -7,10 +7,10 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: true
 });
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000;
 
-var session = require('express-session');
 var app = express();
+var session = require('express-session');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
