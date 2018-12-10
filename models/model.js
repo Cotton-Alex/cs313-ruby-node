@@ -1,4 +1,4 @@
-function getByImageNameRead() {
+function getByImageNameRead(callback) {
 	
 	var results = {
 		readEntries: [
@@ -7,10 +7,10 @@ function getByImageNameRead() {
 		{name:3, name:"entry 03"}
 		]
 	}
-	return results;
+	callback(null, results);
 }
 
-function getByImageNameTran(id) {
+function getByImageNameTran(id, callback) {
 
 	var results = {
 		transcribeEntries: [
@@ -19,39 +19,25 @@ function getByImageNameTran(id) {
 		{id:3, name:"entry 03"}
 		]
 	}
-	return results;
+	callback(null, results);
 }
 
-function insertEntry(id) {
+function insertEntry(id, callback) {
 
-	var results = {
-		transcribeEntries: [
-		{id:1, name:"post 01"},
-		{id:2, name:"post 02"},
-		{id:3, name:"post 03"}
-		]
-	}
-	return results;
+	var results = {success:true};
+	callback(null, results);
 }
 
-function displayRead() {
+function displayRead() { //maybe use this to change tag from block to none
 	console.log("model.displayRead() called");
-	document.getElementById('section_read').style.display = 'block';
-	document.getElementById('section_transcribe').style.display = 'none';
-	var results = {
-		readEntries: [
-		{name:1, name:"entry 01"},
-		{name:2, name:"entry 02"},
-		{name:3, name:"entry 03"}
-		]
-	}
-	return results;
+	//document.getElementById('section_read').style.display = 'block';
+    //document.getElementById('section_transcribe').style.display = 'none';
 }
 
-function displayTranscribe() {
+function displayTranscribe() { //maybe use this to change tag from block to none
 	console.log("model.displayTranscribe() called");
-	document.getElementById('section_read').style.display = 'none';
-	document.getElementById('section_transcribe').style.display = 'block';
+	//document.getElementById('section_read').style.display = 'none';
+    //document.getElementById('section_transcribe').style.display = 'block';
 }
 
 module.exports = {
