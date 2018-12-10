@@ -3,7 +3,7 @@ var journal_month = "01";
 var journal_day = "01";
 
 function checkLocalStorage() {
-	document.getElementById('journal_day').selectedIndex = 6;
+	//document.getElementById('journal_day').selectedIndex = 6;
     if (typeof(localStorage) !== "undefined") { //checking for browser compatibility with local storage
         if (localStorage.journalMode === "transcribe") {
             displayTranscribe();
@@ -14,23 +14,14 @@ function checkLocalStorage() {
         if (localStorage.journalMode === "read") {
             displayRead();
         }
-        if (localStorage.lsJournal_day !== "undefined") {
+        if (localStorage.lsJournal_day !== undefined) {
             journal_day = localStorage.lsJournal_day;
         }
-        if (localStorage.lsJournal_day === null) {
-            localStorage.setItem(lsJournal_day, "01");
-        }
-        if (localStorage.lsJournal_month !== "undefined") {
+        if (localStorage.lsJournal_month !== undefined) {
             journal_month = localStorage.lsJournal_month;
         }
-        if (localStorage.lsJournal_month === null) {
-            localStorage.setItem(lsJournal_month, "01");
-        }
-        if (localStorage.lsJournal_name !== "undefined") {
+        if (localStorage.lsJournal_name !== undefined) {
             journal_name = localStorage.lsJournal_name;
-        }
-        if (localStorage.lsJournal_name === null) {
-            localStorage.setItem(lsJournal_name, "1946-1950");
         }
 
     } else {
