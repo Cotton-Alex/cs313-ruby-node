@@ -22,7 +22,7 @@ function getByImageNameTran(image_file_name, callback) {
 
 function insertEntry(entry_date, entry_text, callback) {
 
-	var results = {list:[{date:entry_date, entry:entry_text}]};
+	var results = {date:entry_date, entry:entry_text};
 	callback(null, results);
 }
 
