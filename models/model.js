@@ -29,7 +29,5 @@ function insertEntry(entry_date, entry_text, callback) {
 module.exports = {
 	getByImageNameRead: getByImageNameRead,
 	getByImageNameTran: getByImageNameTran,
-	insertEntry: insertEntry,
-	displayRead: displayRead,
-	displayTranscribe: displayTranscribe
+	insertEntry: insertEntry
 };
