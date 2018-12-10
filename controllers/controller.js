@@ -14,10 +14,10 @@ function getTranscribe(req,res) {
 	console.log("controller.getTranscribe() called");
 	//hide read & show getTranscribe
 	//model.displayTranscribe();
-	document.getElementById('section_read').style.display = 'none';
-	document.getElementById('section_transcribe').style.display = 'block';
-	//var id = req.query.id;
-	//var results = model.getByImageNameTran(id);
+	//document.getElementById('section_read').style.display = 'none';
+	//document.getElementById('section_transcribe').style.display = 'block';
+	var id = req.query.id;
+	var results = model.getByImageNameTran(id);
 
 	res.json(results);
 };
@@ -28,7 +28,7 @@ function postTranscribe(req,res) {
 	document.getElementById('section_read').style.display = 'none';
 	document.getElementById('section_transcribe').style.display = 'block';
 	//var id = req.query.id;
-	//var results = model.insertEntry(id);
+	var results = model.insertEntry(id);
 
 	res.json(results);
 };
