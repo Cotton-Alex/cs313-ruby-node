@@ -3,6 +3,7 @@ var journal_month = "01";
 var journal_day = "01";
 
 function checkLocalStorage() {
+	document.getElementById('journal_day').selectedIndex = 6;
     if (typeof(localStorage) !== "undefined") { //checking for browser compatibility with local storage
         if (localStorage.journalMode === "transcribe") {
             displayTranscribe();
