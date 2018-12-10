@@ -13,22 +13,22 @@ function checkLocalStorage() {
         if (localStorage.journalMode === "transcribe") {
             displayTranscribe();
         }
-        if (localStorage.journal_name !== undefined) {
+        if (localStorage.lsJournal_name !== undefined) {
             journal_name = localStorage.lsJournal_name;
         }
-        if (localStorage.journal_name === undefined) {
+        if (localStorage.lsJournal_name === undefined) {
         	localStorage.setItem(lsJournal_name, "1946-1950");
         }
-        if (localStorage.journal_month !== undefined) {
+        if (localStorage.lsJournal_month !== undefined) {
             journal_month = localStorage.lsJournal_month;
         }
-        if (localStorage.journal_month === undefined) {
+        if (localStorage.lsJournal_month === undefined) {
         	localStorage.setItem(lsJournal_month, "01");
         }
-        if (localStorage.journal_day !== undefined) {
+        if (localStorage.lsJournal_day !== undefined) {
             journal_day = localStorage.lsJournal_day;
         }
-        if (localStorage.journal_day === undefined) {
+        if (localStorage.lsJournal_day === undefined) {
         	localStorage.setItem(lsJournal_day, "01");
         }
 
