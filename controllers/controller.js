@@ -1,4 +1,4 @@
-const model = require("java../models/model.js");
+const model = require("../models/model.js");
 
 function read(req,res) {
 	console.log("controller.read() called");
