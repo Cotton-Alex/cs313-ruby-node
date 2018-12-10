@@ -4,7 +4,10 @@ var journal_day = "01";
 
 function checkLocalStorage() {
     if (typeof(localStorage) !== "undefined") { //checking for browser compatibility with local storage
-        if (localStorage.journalMode === null || "read") {
+        if (localStorage.journalMode === null) {
+            displayRead();
+        }
+        if (localStorage.journalMode === "read") {
             displayRead();
         }
         if (localStorage.journalMode === "transcribe") {
