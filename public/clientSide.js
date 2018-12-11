@@ -1,26 +1,28 @@
 var journal_name = "1946-1950";
 var journal_month = "01";
-var journal_day = "01";
+var journal_day = "05";
 
 function checkLocalStorage() {
     if (typeof(localStorage) !== "undefined") { //checking for browser compatibility with local storage
         if (localStorage.journalMode === "transcribe") {
             displayTranscribe();
-        }
-        if (localStorage.journalMode === null) {
-            displayRead();
-        }
-        if (localStorage.journalMode === "read") {
+        } else {
             displayRead();
         }
         if (localStorage.lsJournal_day !== undefined) {
-            journal_day = localStorage.lsJournal_day;
+            document.getElementById('day' + localStorage.lsJournal_day).selected = true;
+        } else {
+            localStorage.setItem("lsJournal_day", "01");
         }
         if (localStorage.lsJournal_month !== undefined) {
-            journal_month = localStorage.lsJournal_month;
+            document.getElementById('month' + localStorage.lsJournal_month).selected = true;
+        } else {
+            localStorage.setItem("lsJournal_month", "01");
         }
         if (localStorage.lsJournal_name !== undefined) {
-            journal_name = localStorage.lsJournal_name;
+            document.getElementById(localStorage.lsJournal_name).selected = true;
+        } else {
+            localStorage.setItem("lsJournal_name", "1946-1950");
         }
 
     } else {
@@ -31,22 +33,35 @@ function checkLocalStorage() {
 //document.querySelector("#journal_day").addEventListener('change', dateSelectionPersistance);
 
 function dateSelectionPersistance() {
-    var journalDayIndex = document.getElementById('journal_day').selected;
-    var journalMonthIndex = document.getElementById('journal_month').selected;
-    var journalNameIndex = document.getElementById('journal_name').selected;
-    localStorage.setItem(lsJournal_day, journalDayIndex);
-    localStorage.setItem(lsJournal_month, journalMonthIndex);
-    localStorage.setItem(lsJournal_name, journalNameIndex);
+    var journalDayValue = document.getElementById('journal_day_selector').value;
+    document.getElementById('day' + journalDayValue).selected = true;
 
-    console.log("selected day index is " + journalDayIndex);
-    console.log("selected month index is " + journalMonthIndex);
-    console.log("selected journal index is " + journalNameIndex);
+    var journalMonthValue = document.getElementById('journal_month_selector').value;
+    document.getElementById('month' + journalMonthValue).selected = true;
+
+    var journalNameValue = document.getElementById('journal_name_selector').value;
+    document.getElementById(journalNameValue).selected = true;
+
+    localStorage.setItem("lsJournal_day", journalDayValue);
+    localStorage.setItem("lsJournal_month", journalMonthValue);
+    localStorage.setItem("lsJournal_name", journalNameValue);
+
+    console.log("selected day value is " + journalDayValue);
+    console.log("selected month value is " + journalMonthValue);
+    console.log("selected journal value is " + journalNameValue);
 }
 
 function displayRead() {
     document.getElementById('section_read').style.display = 'block';
     document.getElementById('section_transcribe').style.display = 'none';
     localStorage.setItem("journalMode", "read");
+
+    var journal_day_selector_value = $('#journal_day_selector').val();
+    var journal_month_selector_value = $('#journal_month_selector').val();
+    var journal_name_selector_value = $('#journal_name_selector').val();
+    console.log('journal_day_selector: ' + journal_day_selector_value);
+    console.log('journal_month_selector: ' + journal_month_selector_value);
+    console.log('journal_name_selector: ' + journal_name_selector_value);
 }
 
 function displayTranscribe() {
