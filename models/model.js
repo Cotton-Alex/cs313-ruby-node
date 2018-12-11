@@ -1,3 +1,8 @@
+const { Pool } = require('pg');
+const db_url = process.env.DATABASE_URL;
+const pool = new Pool({connectionString: db_url, ssl: true});
+
+
 function getByImageNameRead(image_file_name, callback) {
 	
   	var results = {list:[{date:image_file_name, entry:"today stuff happened"},

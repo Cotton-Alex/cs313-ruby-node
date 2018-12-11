@@ -1,8 +1,9 @@
-const bodyParser = require('body-parser')
-const express = require('express')
-const path = require('path')
-const { Pool } = require('pg')
-const contoller = require('./controllers/controller.js')
+const bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+require('dotenv').config();
+const { Pool } = require('pg');
+const contoller = require('./controllers/controller.js');
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: true
@@ -15,8 +16,8 @@ var session = require('express-session');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
   // .get('/', (req, res) => res.render('pages/index'))
   // .get('/postage', async (req, res) => {
 app.get('/', async (req, res) => {
