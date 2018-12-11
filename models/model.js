@@ -5,22 +5,7 @@ const pool = new Pool({ connectionString: db_url, ssl: true });
 
 function getByImageNameRead(image_file_name, callback) {
 
-    //var sql = "SELECT entry.entry_date, entry.entry_text FROM entry WHERE image_id = 2;";
-    var sql = "SELECT
-    journal.journal_name,
-        image.image_name,
-        entry.page_date,
-        entry.image_id,
-        entry.entry_date,
-        entry.entry_text
-    FROM entry
-    INNER JOIN image
-    ON entry.image_id = image.image_id
-    INNER JOIN journal
-    ON entry.journal_id = journal.journal_id
-    WHERE image.image_name = " + "
-    '" + $image_file_name + "'
-    " + ' ORDER BY entry_date ASC ;';
+    var sql = "SELECT entry.entry_date, entry.entry_text FROM entry WHERE image_id = 2;";
     pool.query(sql, function(err, db_results) {
 
         if (err) {
