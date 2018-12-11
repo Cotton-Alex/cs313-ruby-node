@@ -8,9 +8,9 @@ function checkLocalStorage() {
         if (localStorage.journalMode === "transcribe") {
             displayTranscribe();
         }
-        if (localStorage.journalMode === null) {
-            displayRead();
-        }
+        // if (localStorage.journalMode === null) {
+        //     displayRead();
+        // }
         if (localStorage.journalMode === "read") {
             displayRead();
         }
@@ -29,11 +29,11 @@ function checkLocalStorage() {
     }
 }
 
-//document.querySelector("#journal_day").addEventListener('change', dateSelectionPersistance);
+document.querySelector("#journal_day").addEventListener('change', dateSelectionPersistance);
 
 function dateSelectionPersistance() {
-    var journalDayIndex = document.getElementById('journal_day').selected;
-    var journalMonthIndex = document.getElementById('journal_month').selected;
+    var journalDayIndex = document.getElementById('journal_day').optionObject.selected;
+    var journalMonthIndex = document.getElementById('journal_month').optionObject.selected;
     var journalNameIndex = document.getElementById('journal_name').selected;
     localStorage.setItem(lsJournal_day, journalDayIndex);
     localStorage.setItem(lsJournal_month, journalMonthIndex);
