@@ -32,9 +32,9 @@ function checkLocalStorage() {
 //document.querySelector("#journal_day").addEventListener('change', dateSelectionPersistance);
 
 function dateSelectionPersistance() {
-    var journalDayIndex = document.getElementById('journal_day').selectedIndex;
-    var journalMonthIndex = document.getElementById('journal_month').selectedIndex;
-    var journalNameIndex = document.getElementById('journal_name').selectedIndex;
+    var journalDayIndex = document.getElementById('journal_day').selected;
+    var journalMonthIndex = document.getElementById('journal_month').selected;
+    var journalNameIndex = document.getElementById('journal_name').selected;
     localStorage.setItem(lsJournal_day, journalDayIndex);
     localStorage.setItem(lsJournal_month, journalMonthIndex);
     localStorage.setItem(lsJournal_name, journalNameIndex);
