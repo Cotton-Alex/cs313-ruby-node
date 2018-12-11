@@ -15,7 +15,7 @@ function checkLocalStorage() {
             displayRead();
         }
         if (localStorage.lsJournal_day !== undefined) {
-            journal_day = localStorage.lsJournal_day;
+            //journal_day = localStorage.lsJournal_day;
         }
         if (localStorage.lsJournal_month !== undefined) {
             journal_month = localStorage.lsJournal_month;
@@ -35,9 +35,9 @@ function dateSelectionPersistance() {
     var journalDayIndex = document.getElementById('journal_day').optionObject.selected;
     var journalMonthIndex = document.getElementById('journal_month').optionObject.selected;
     var journalNameIndex = document.getElementById('journal_name').selected;
-    localStorage.setItem(lsJournal_day, journalDayIndex);
-    localStorage.setItem(lsJournal_month, journalMonthIndex);
-    localStorage.setItem(lsJournal_name, journalNameIndex);
+    localStorage.setItem(lsJournal_day, "jday");
+    localStorage.setItem(lsJournal_month, "jmonth");
+    localStorage.setItem(lsJournal_name, "jname");
 
     console.log("selected day index is " + journalDayIndex);
     console.log("selected month index is " + journalMonthIndex);
