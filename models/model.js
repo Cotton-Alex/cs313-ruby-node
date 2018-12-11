@@ -5,25 +5,40 @@ const pool = new Pool({ connectionString: db_url, ssl: true });
 
 function getByImageNameRead(image_file_name, callback) {
 
-    var sql = "SELECT entry.entry_date, entry.entry_text FROM entry WHERE image_id = 2;";
+    //var sql = "SELECT entry.entry_date, entry.entry_text FROM entry WHERE image_id = 2;";
+    var sql = "SELECT
+    journal.journal_name,
+        image.image_name,
+        entry.page_date,
+        entry.image_id,
+        entry.entry_date,
+        entry.entry_text
+    FROM entry
+    INNER JOIN image
+    ON entry.image_id = image.image_id
+    INNER JOIN journal
+    ON entry.journal_id = journal.journal_id
+    WHERE image.image_name = " + "
+    '" + $image_file_name + "'
+    " + ' ORDER BY entry_date ASC ;';
     pool.query(sql, function(err, db_results) {
 
-            if (err) {
-                throw err;
-            } else {
-                //success from database
-                console.log("back from db with:");
-                console.log(db_results);
+        if (err) {
+            throw err;
+        } else {
+            //success from database
+            console.log("back from db with:");
+            console.log(db_results);
 
-                var results = {
-                    success:true,
-                    list:db_results.rows
-                };
+            var results = {
+                success: true,
+                list: db_results.rows
+            };
 
-                callback(null, results);
-            }
+            callback(null, results);
+        }
 
-        });
+    });
 
 
 }

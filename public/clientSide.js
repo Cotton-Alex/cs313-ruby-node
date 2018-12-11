@@ -81,7 +81,7 @@ function displayTranscribe() {
     var journal_name_selector_value = $('#journal_name_selector').val();
     var image_file_name = (journal_name_selector_value + "-" + journal_month_selector_value + "-" + journal_day_selector_value + ".jpg")
 
-    $.get("/read",{image_file_name:image_file_name}, function(data) {
+    $.get("/transcribe",{image_file_name:image_file_name}, function(data) {
         console.log("back with all of this:");
         console.log(data);
     })
