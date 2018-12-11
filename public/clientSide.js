@@ -1,6 +1,6 @@
-var journal_name = "1946-1950";
-var journal_month = "01";
-var journal_day = "05";
+// var journal_name = "1946-1950";
+// var journal_month = "01";
+// var journal_day = "05";
 
 function checkLocalStorage() {
     if (typeof(localStorage) !== "undefined") { //checking for browser compatibility with local storage
@@ -45,10 +45,14 @@ function dateSelectionPersistance() {
     localStorage.setItem("lsJournal_day", journalDayValue);
     localStorage.setItem("lsJournal_month", journalMonthValue);
     localStorage.setItem("lsJournal_name", journalNameValue);
+}
 
-    console.log("selected day value is " + journalDayValue);
-    console.log("selected month value is " + journalMonthValue);
-    console.log("selected journal value is " + journalNameValue);
+function readOrTranscribe() {
+    if (localStorage.journalMode === "transcribe") {
+        displayTranscribe();
+    } else {
+        displayRead();
+    }
 }
 
 function displayRead() {
@@ -59,13 +63,33 @@ function displayRead() {
     var journal_day_selector_value = $('#journal_day_selector').val();
     var journal_month_selector_value = $('#journal_month_selector').val();
     var journal_name_selector_value = $('#journal_name_selector').val();
-    console.log('journal_day_selector: ' + journal_day_selector_value);
-    console.log('journal_month_selector: ' + journal_month_selector_value);
-    console.log('journal_name_selector: ' + journal_name_selector_value);
+    var image_file_name = (journal_name_selector_value + "-" + journal_month_selector_value + "-" + journal_day_selector_value + ".jpg")
+
+    $.get("/read",{image_file_name:image_file_name}, function(data) {
+        console.log("back with all of this:");
+        console.log(data);
+    })
 }
 
 function displayTranscribe() {
     document.getElementById('section_read').style.display = 'none';
     document.getElementById('section_transcribe').style.display = 'block';
     localStorage.setItem("journalMode", "transcribe");
+
+    var journal_day_selector_value = $('#journal_day_selector').val();
+    var journal_month_selector_value = $('#journal_month_selector').val();
+    var journal_name_selector_value = $('#journal_name_selector').val();
+    var image_file_name = (journal_name_selector_value + "-" + journal_month_selector_value + "-" + journal_day_selector_value + ".jpg")
+
+    $.get("/read",{image_file_name:image_file_name}, function(data) {
+        console.log("back with all of this:");
+        console.log(data);
+    })
 }
+
+
+
+
+
+
+
