@@ -63,11 +63,17 @@ function displayRead() {
     var journal_day_selector_value = $('#journal_day_selector').val();
     var journal_month_selector_value = $('#journal_month_selector').val();
     var journal_name_selector_value = $('#journal_name_selector').val();
-    var image_file_name = (journal_name_selector_value + "-" + journal_month_selector_value + "-" + journal_day_selector_value + ".jpg")
+    var image_file_name = (journal_name_selector_value + "-" + journal_month_selector_value + "-" + journal_day_selector_value + ".jpg");
+    document.getElementById("journal_page").src = ("http://www.rubysjournal.com/single_images/" + image_file_name);
 
-    $.get("/read",{image_file_name:image_file_name}, function(data) {
-        console.log("back with all of this:");
-        console.log(data);
+    $.get("/read", { image_file_name: image_file_name }, function(data) {
+        // console.log("back with all of this:");
+        // console.log(data);
+
+        for (var i = 0; i < data.list.length; i++) {
+            var entry = data.list[i];
+            $("#readId").append("<tr><td id=\"tdDate\">" + entry.entry_date + "</td><td>" + entry.entry_text + "</td></tr>");
+        }
     })
 }
 
@@ -79,17 +85,32 @@ function displayTranscribe() {
     var journal_day_selector_value = $('#journal_day_selector').val();
     var journal_month_selector_value = $('#journal_month_selector').val();
     var journal_name_selector_value = $('#journal_name_selector').val();
-    var image_file_name = (journal_name_selector_value + "-" + journal_month_selector_value + "-" + journal_day_selector_value + ".jpg")
+    var image_file_name = (journal_name_selector_value + "-" + journal_month_selector_value + "-" + journal_day_selector_value + ".jpg");
+    document.getElementById("journal_page").src = ("http://www.rubysjournal.com/single_images/" + image_file_name);
 
-    $.get("/transcribe",{image_file_name:image_file_name}, function(data) {
-        console.log("back with all of this:");
-        console.log(data);
-    })
+    $.get("/transcribe", { image_file_name: image_file_name }, function(data) {
+        // console.log("back with all of this:");
+        // console.log(data);
+
+        for (var i = 0; i < data.list.length; i++) {
+            var entry = data.list[i];
+            $("#transcribeId").append("<div id=\"journal_text\"><form method = \"post\" action = \"insert_text.php\">\n" +
+                "<input type = \"hidden\" name = \"entry_id\" value = " + entry.entry_id + ">\n" +
+                "<input type = \"hidden\" name = \"journal_id\" value = " + entry.journal_id + ">\n" +
+                //"<input type = \"hidden\" name = \"page_date\" value = " + entry.page_date + ">\n" +
+                "<input type = \"hidden\" name = \"image_id\" value = " + entry.image_id + ">\n" +
+                //"<input type = \"hidden\" name = \"entry_date\" value = " + entry.entry_date + ">\n" +
+                "<input type = \"hidden\" name = \"image_name\" value = " + entry.image_name + ">\n" +
+                "<tr>\n" +
+                "<label class=\"labelDate\">Date:</label>\n" +
+                //"<input class=\"inputDate\" type=\"date\" name=\"entry_date\" value=" + entry.entry_date + ">\n" +
+                "<input type=\"submit\" value=\"Add Entry\" class=\"addEntryButton\"/>\n" +
+                "<br>\n" +
+                "<textarea class=\"transcribeTxtarea\" name=\"entry_text\" rows=\"4\" cols=\"44\" wrap=\"soft\" style=\"overflow:auto\">" + entry.entry_text + "</textarea>\n" +
+                "<br>\n" +
+                "</form>\n" +
+                "</div>"
+            )
+        }
+    });
 }
-
-
-
-
-
-
-

@@ -5,15 +5,16 @@ const pool = new Pool({ connectionString: db_url, ssl: true });
 
 function getByImageNameRead(image_file_name, callback) {
 
-    var sql = "SELECT entry.entry_date, entry.entry_text FROM entry WHERE image_id = 2;";
+    var sql = "SELECT journal.journal_name, image.image_name, entry.page_date, entry.image_id, \n" +
+     "entry.entry_date, entry.entry_text FROM entry INNER JOIN image ON entry.image_id = image.image_id \n" +
+     " INNER JOIN journal ON entry.journal_id = journal.journal_id \n" + 
+     "WHERE image.image_name = " + "'" + image_file_name + "'" + " ORDER BY entry_date ASC;";
+    
     pool.query(sql, function(err, db_results) {
 
         if (err) {
             throw err;
         } else {
-            //success from database
-            console.log("back from db with:");
-            console.log(db_results);
 
             var results = {
                 success: true,
@@ -30,16 +31,26 @@ function getByImageNameRead(image_file_name, callback) {
 
 function getByImageNameTran(image_file_name, callback) {
 
-    var results = {
-        list: [{ date: image_file_name, entry: "today stuff happened" },
-            { date: image_file_name, entry: "today 2 stuff happened" },
-            { date: image_file_name, entry: "today 3 stuff happened" },
-            { date: image_file_name, entry: "today 4 stuff happened" },
-            { date: image_file_name, entry: "today 5 stuff happened" }
-        ]
-    };
+    var sql = "SELECT journal.journal_name, image.image_name, entry.page_date, entry.image_id, \n" +
+     "entry.entry_date, entry.entry_text FROM entry INNER JOIN image ON entry.image_id = image.image_id \n" +
+     " INNER JOIN journal ON entry.journal_id = journal.journal_id \n" + 
+     "WHERE image.image_name = " + "'" + image_file_name + "'" + " ORDER BY entry_date ASC;";
+    
+    pool.query(sql, function(err, db_results) {
 
-    callback(null, results);
+        if (err) {
+            throw err;
+        } else {
+
+            var results = {
+                success: true,
+                list: db_results.rows
+            };
+
+            callback(null, results);
+        }
+
+    });
 }
 
 function insertEntry(entry_date, entry_text, callback) {

@@ -11,31 +11,21 @@
         <div class="journal_page_container">
 			<% include ./partials/date_selector %>
 			<br>
-			<!-- <img id="journal_page" src="http://www.rubysjournal.com/single_images/' . $image_file_name . '" alt=RubysJournal" /> -->
+			<img id="journal_page" src="http://www.rubysjournal.com/single_images/' . $image_file_name . '" alt=RubysJournal" />
             <div id="journal_text">
                 <div id="section_read">
-                	<h1>read</h1>
-                    <table>
-                        <tbody>
-							<ul>
-							    <% results.forEach(function(r) { %>
-							        <li><%= r.entry_date %> - <%= r.entry_text %></li>
-							    <% }); %>
-							</ul>
-						</tbody>
-					</table>
-				</div>
-				<div id="section_transcribe">
-					<h1>transcribe</h1>
-                    <table>
-                        <tbody>
-							<ul>
-							    <% results.forEach(function(r) { %>
-							        <li><%= r.entry_date %> - <%= r.entry_text %></li>
-							    <% }); %>
-							</ul>
-						</tbody>
-					</table>
+                	<section>
+	                    <table>
+	                        <tbody id="readId">
+							</tbody>
+						</table>
+					</div>
+					<div id="section_transcribe">
+	                    <table>
+	                        <tbody id="transcribeId">
+							</tbody>
+						</table>
+					</section>
 				</div>
 			</div>
 		 </div>
