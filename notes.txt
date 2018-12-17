@@ -1,1 +1,1 @@
-git add . ;  git status ; git commit -m "mvc fix" ; git push origin master
+git add . ;  git status ; git commit -m "transcribe is finally reading from teh database abd adding the text to teh text boxes" ; git push origin master
