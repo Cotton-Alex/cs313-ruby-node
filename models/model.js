@@ -4,6 +4,7 @@ const pool = new Pool({ connectionString: db_url, ssl: true });
 
 
 function getByImageNameRead(image_file_name, callback) {
+    console.log(image_file_name);
 
     var sql = "SELECT journal.journal_name, image.image_name, entry.page_date, entry.image_id, \n" +
      "entry.entry_date, entry.entry_text FROM entry INNER JOIN image ON entry.image_id = image.image_id \n" +
@@ -30,6 +31,7 @@ function getByImageNameRead(image_file_name, callback) {
 }
 
 function getByImageNameTran(image_file_name, callback) {
+    console.log(image_file_name);
 
     var sql = "SELECT journal.journal_name, image.image_name, entry.page_date, entry.image_id, \n" +
      "entry.entry_date, entry.entry_text FROM entry INNER JOIN image ON entry.image_id = image.image_id \n" +

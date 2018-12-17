@@ -1,6 +1,21 @@
 // var journal_name = "1946-1950";
 // var journal_month = "01";
 // var journal_day = "05";
+// var dateFormat = require('dateformat');
+// var now = new Date();
+// dateFormat.i18n = {
+//     dayNames: [
+//         'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat',
+//         'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+//     ],
+//     monthNames: [
+//         'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+//         'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+//     ],
+//     timeNames: [
+//         'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
+//     ]
+// };
 
 function checkLocalStorage() {
     if (typeof(localStorage) !== "undefined") { //checking for browser compatibility with local storage
@@ -69,10 +84,12 @@ function displayRead() {
     $.get("/read", { image_file_name: image_file_name }, function(data) {
         // console.log("back with all of this:");
         // console.log(data);
-
+        //console.log(dateFormat(now, 'isoDate'));
+        // dateFormat(entry.entry_date, "isoDate")
+        
         for (var i = 0; i < data.list.length; i++) {
             var entry = data.list[i];
-            $("#readId").append("<tr><td id=\"tdDate\">" + entry.entry_date + "</td><td>" + entry.entry_text + "</td></tr>");
+            $("#readId").append("<tr><td id=\"tdDate\">" + entry.entry_date.substr(0, 10) + "</td><td>" + entry.entry_text + "</td></tr><tr></tr>");
         }
     })
 }
@@ -83,6 +100,7 @@ function displayTranscribe() {
     localStorage.setItem("journalMode", "transcribe");
 
     var journal_day_selector_value = $('#journal_day_selector').val();
+    console.log(journal_day_selector_value);
     var journal_month_selector_value = $('#journal_month_selector').val();
     var journal_name_selector_value = $('#journal_name_selector').val();
     var image_file_name = (journal_name_selector_value + "-" + journal_month_selector_value + "-" + journal_day_selector_value + ".jpg");
@@ -90,27 +108,26 @@ function displayTranscribe() {
 
     $.get("/transcribe", { image_file_name: image_file_name }, function(data) {
         // console.log("back with all of this:");
-        // console.log(data);
+        //console.log(data);
 
         for (var i = 0; i < data.list.length; i++) {
             var entry = data.list[i];
-            $("#transcribeId").append("<div id=\"journal_text\"><form method = \"post\" action = \"insert_text.php\">\n" +
+            $("#transcribeId").append("<div id=\"journal_text\"><form method = \"post\" action = \"\">\n" +
                 "<input type = \"hidden\" name = \"entry_id\" value = " + entry.entry_id + ">\n" +
                 "<input type = \"hidden\" name = \"journal_id\" value = " + entry.journal_id + ">\n" +
-                //"<input type = \"hidden\" name = \"page_date\" value = " + entry.page_date + ">\n" +
+                "<input type = \"hidden\" name = \"page_date\" value = " + entry.page_date.substr(0, 10) + ">\n" +
                 "<input type = \"hidden\" name = \"image_id\" value = " + entry.image_id + ">\n" +
-                //"<input type = \"hidden\" name = \"entry_date\" value = " + entry.entry_date + ">\n" +
+                "<input type = \"hidden\" name = \"entry_date\" value = " + entry.entry_date.substr(0, 10) + ">\n" +
                 "<input type = \"hidden\" name = \"image_name\" value = " + entry.image_name + ">\n" +
                 "<tr>\n" +
                 "<label class=\"labelDate\">Date:</label>\n" +
-                //"<input class=\"inputDate\" type=\"date\" name=\"entry_date\" value=" + entry.entry_date + ">\n" +
+                "<input class=\"inputDate\" type=\"date\" name=\"entry_date\" value=" + entry.entry_date.substr(0, 10) + ">\n" +
                 "<input type=\"submit\" value=\"Add Entry\" class=\"addEntryButton\"/>\n" +
                 "<br>\n" +
                 "<textarea class=\"transcribeTxtarea\" name=\"entry_text\" rows=\"4\" cols=\"44\" wrap=\"soft\" style=\"overflow:auto\">" + entry.entry_text + "</textarea>\n" +
                 "<br>\n" +
                 "</form>\n" +
-                "</div>"
-            )
+                "</div>");
         }
-    });
+    })
 }
