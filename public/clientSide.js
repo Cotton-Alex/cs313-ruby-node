@@ -1,21 +1,3 @@
-// var journal_name = "1946-1950";
-// var journal_month = "01";
-// var journal_day = "05";
-// var dateFormat = require('dateformat');
-// var now = new Date();
-// dateFormat.i18n = {
-//     dayNames: [
-//         'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat',
-//         'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
-//     ],
-//     monthNames: [
-//         'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
-//         'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
-//     ],
-//     timeNames: [
-//         'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
-//     ]
-// };
 
 function checkLocalStorage() {
     if (typeof(localStorage) !== "undefined") { //checking for browser compatibility with local storage
@@ -82,10 +64,6 @@ function displayRead() {
     document.getElementById("journal_page").src = ("http://www.rubysjournal.com/single_images/" + image_file_name);
 
     $.get("/read", { image_file_name: image_file_name }, function(data) {
-        // console.log("back with all of this:");
-        // console.log(data);
-        //console.log(dateFormat(now, 'isoDate'));
-        // dateFormat(entry.entry_date, "isoDate")
         
         $('#readId').html("");
         $('#transcribeId').html("");
@@ -110,15 +88,13 @@ function displayTranscribe() {
     document.getElementById("journal_page").src = ("http://www.rubysjournal.com/single_images/" + image_file_name);
 
     $.get("/transcribe", { image_file_name: image_file_name }, function(data) {
-        // console.log("back with all of this:");
-        //console.log(data);
 
         $('#transcribeId').html("");
         $('#readId').html("");
 
         for (var i = 0; i < data.list.length; i++) {
             var entry = data.list[i];
-            $("#transcribeId").append("<div id=\"journal_text\"><form method = \"post\" action = \"\">\n" +
+            $("#transcribeId").append("<div id=\"journal_text\"><form method = \"post\" action = \"/transcribe\">\n" +
                 "<input type = \"hidden\" name = \"entry_id\" value = " + entry.entry_id + ">\n" +
                 "<input type = \"hidden\" name = \"journal_id\" value = " + entry.journal_id + ">\n" +
                 "<input type = \"hidden\" name = \"page_date\" value = " + entry.page_date.substr(0, 10) + ">\n" +
