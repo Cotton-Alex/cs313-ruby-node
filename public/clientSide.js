@@ -87,6 +87,9 @@ function displayRead() {
         //console.log(dateFormat(now, 'isoDate'));
         // dateFormat(entry.entry_date, "isoDate")
         
+        $('#readId').html("");
+        $('#transcribeId').html("");
+
         for (var i = 0; i < data.list.length; i++) {
             var entry = data.list[i];
             $("#readId").append("<tr><td id=\"tdDate\">" + entry.entry_date.substr(0, 10) + "</td><td>" + entry.entry_text + "</td></tr><tr></tr>");
@@ -109,6 +112,9 @@ function displayTranscribe() {
     $.get("/transcribe", { image_file_name: image_file_name }, function(data) {
         // console.log("back with all of this:");
         //console.log(data);
+
+        $('#transcribeId').html("");
+        $('#readId').html("");
 
         for (var i = 0; i < data.list.length; i++) {
             var entry = data.list[i];
