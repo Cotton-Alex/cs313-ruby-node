@@ -1,1 +1,3 @@
-git add . ;  git status ; git commit -m "duplicate data fix" ; git push origin master
+git add . ;  git status ; git commit -m "adding update functionality" ; git push origin master
+
+git add . ,  git status , git commit , git push origin master

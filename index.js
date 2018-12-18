@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-  // .get('/', (req, res) => res.render('pages/index'))
+  // .get('/', (req, res) = > res.render('pages/index'))
   // .get('/postage', async (req, res) => {
 app.get('/', async (req, res) => {
     try {
