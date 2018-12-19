@@ -1,4 +1,5 @@
 const model = require("../models/model.js");
+const bodyParser = require("body-parser");
 
 function read(req, res) {
     console.log("controller.read() called");
