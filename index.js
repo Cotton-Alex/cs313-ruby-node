@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5000;
 var app = express();
 var session = require('express-session');
 
-app.use(express.static(path.join(__d irname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.set('views', path.join(__dirname, 'views'));
