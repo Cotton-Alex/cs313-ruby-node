@@ -27,13 +27,13 @@ function postTranscribe(req, res) {
     //var id = req.query.id;
     // var entry_date = "date" //document.getelemen
     // var entry_text = "lots of text from text box";
-    var entry_date = htmlspecialchars($_POST['entry_date']);
-    var entry_text = htmlspecialchars($_POST['entry_text']);
-    console.log(entry_date);
-    console.log(entry_text);
-     model.insertEntry(entry_date, entry_text, function(error, results) {
-     	res.json(results);
-    });
+    // var entry_date = htmlspecialchars($_POST['entry_date']);
+    // var entry_text = htmlspecialchars($_POST['entry_text']);
+    // console.log(entry_date);
+    // console.log(entry_text);
+    //  model.insertEntry(entry_date, entry_text, function(error, results) {
+    //  	res.json(results);
+    // });
 }
 
 module.exports = {
