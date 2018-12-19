@@ -25,6 +25,13 @@ function getTranscribe(req, res) {
 
 function postTranscribe(req, res) {
     console.log("controller.postTranscribe() called");
+    
+    var entry_date = $("#entry_date").val();
+    var entry_text = $("#entry_text").val();
+
+    console.log("entry_date = " + entry_date);
+    console.log("entry_text = " + entry_text);
+
     //var id = req.query.id;
     // var entry_date = "date" //document.getelemen
     // var entry_text = "lots of text from text box";

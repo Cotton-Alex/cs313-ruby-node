@@ -94,7 +94,7 @@ function displayTranscribe() {
 
         for (var i = 0; i < data.list.length; i++) {
             var entry = data.list[i];
-            $("#transcribeId").append("<div id=\"journal_text\"><form method = \"post\" action = \"updateEntryData()\">\n" +
+            $("#transcribeId").append("<div id=\"journal_text\"><form method = \"post\" action = \"/transcribe\">\n" +
                 "<input type = \"hidden\" name = \"entry_id\" value = " + entry.entry_id + ">\n" +
                 "<input type = \"hidden\" name = \"journal_id\" value = " + entry.journal_id + ">\n" +
                 "<input type = \"hidden\" name = \"page_date\" value = " + entry.page_date.substr(0, 10) + ">\n" +
@@ -112,15 +112,4 @@ function displayTranscribe() {
                 "</div>");
         }
     })
-}
-
-function updateEntryData() {
-    var entry_date = $("#entry_date").val();
-    var entry_text = $("#entry_text").val();
-
-    console.log("entry_date = " + entry_date);
-    console.log("entry_text = " + entry_text);
-
-
-
 }
